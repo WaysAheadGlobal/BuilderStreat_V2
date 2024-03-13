@@ -1,0 +1,139 @@
+@extends('layouts.buyer-app')
+
+@section('content')
+
+<style>
+    .card__content{
+        display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+        
+        
+    }
+    
+    .card{
+        width: 270px;
+        margin-left: 35px;
+        background: url(https://getmethat.ca/ecowaste/public/images/sub-his.png);
+        background-repeat: no-repeat;
+        height: 320px;
+    }
+    
+    .form-check {
+    position: relative;
+    display: block;
+    padding-left: 1.25rem;
+    display: flex;
+    align-items: center;
+    padding: 13px;
+    font-size: 17px;
+}
+    
+    .card__cta{
+        background: #6e840b;
+    padding: 10px 45px;
+    margin-bottom: 35px;
+    border-radius: 5px;
+    width: 222px;
+        font-family: 'Montserrat';
+font-style: normal;
+font-weight: 400;
+font-size: 13.5144px;
+line-height: 16px;
+text-align: center;
+letter-spacing: 0.16893px;
+
+color: #FFFFFF;
+        height: 42.04px;
+    }
+    
+    .form-check-label {
+    margin-bottom: 0;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 28px;
+    letter-spacing: 0.005em;
+    color: #6C6C6C;
+}
+    
+    .fw7{
+        font-family: 'Poppins';
+font-style: normal;
+font-weight: 700;
+font-size: 36.0383px;
+line-height: 45px;
+/* or 125% */
+
+text-align: center;
+
+/* logo brown */
+
+color: #7B4425;
+    }
+    
+    .sub-back{
+        background: #F3F2F4;
+        width: 100%;
+        height: 973px;
+    }
+
+
+</style>
+
+<section class="sub-back">
+    <div class="container" style="background: white; height: 700px; position: relative; top: 19px;">
+        <div class="profile-edit" style="margin-top: 10px;margin-bottom: 20px;">
+            <h3>Subcription History </h3>
+        </div>
+        <div class="row">
+            @foreach($results as $result)
+            <div class="card col-md-3">
+            <div class="card__content">
+                <div class="card__label" style=""> </div>
+                <h2 style="text-align: center; text-align: center;margin-top: 60px; line-height: 0.4;">
+                    <a href="#" class="card__link" style="ont-family: 'Montserrat';font-style: normal;font-weight: 600;font-size: 16px;line-height: 20px;text-align: center;letter-spacing: 0.108256px;text-transform: uppercase;color: #1B1D21;" target="_blank">{{$result->plan_validity}}<br> Subscription
+                    </a>
+                </h2>
+                <p><span class="fw7">CAD {{$result->price}}</span> </p>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                    <label class="form-check-label" for="flexCheckChecked">
+                        Auto Renew
+                    </label>
+                </div>
+                <div class="card__cta-container">
+                    <button class="card__cta">Cancel</button>
+                </div>
+            </div>
+
+        </div>
+        @endforeach
+        <!-- <div class="card col-md-3">
+            <div class="card__content">
+                <div class="card__label" style=""> </div>
+                <h2 style="text-align: center; text-align: center;margin-top: 60px; line-height: 0.4;">
+                    <a href="#" class="card__link" style="ont-family: 'Montserrat';font-style: normal;font-weight: 600;font-size: 16px;line-height: 20px;text-align: center;letter-spacing: 0.108256px;text-transform: uppercase;color: #1B1D21;" target="_blank"> Monthly<br> Subscription
+                    </a>
+                </h2>
+                <p><span class="fw7">CAD 15.99</span> </p>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                    <label class="form-check-label" for="flexCheckChecked">
+                        Auto Renew
+                    </label>
+                </div>
+                <div class="card__cta-container">
+                    <button class="card__cta">Cancel</button>
+                </div>
+            </div>
+
+        </div> -->
+        </div>
+
+    </div>
+</section>
+
+@endsection
